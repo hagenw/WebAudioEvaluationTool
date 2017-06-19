@@ -79,7 +79,7 @@ function loadInterface() {
     // Create a slider box
     var sliderBox = document.createElement('div');
     sliderBox.style.width = "100%";
-    sliderBox.style.height = window.innerHeight - 200 + 12 + 'px';
+    sliderBox.style.height = window.innerHeight - 300 + 12 + 'px';
     sliderBox.style.marginBottom = '10px';
     sliderBox.id = 'slider';
     var scaleHolder = document.createElement('div');
@@ -293,7 +293,7 @@ function sliderObject(audioObject, label) {
     this.play = document.createElement('button');
 
     this.holder.className = 'track-slider';
-    this.holder.style.height = window.innerHeight - 200 + 'px';
+    this.holder.style.height = window.innerHeight - 300 + 'px';
     this.holder.appendChild(this.title);
     this.holder.appendChild(this.slider);
     this.holder.appendChild(this.play);
@@ -313,7 +313,7 @@ function sliderObject(audioObject, label) {
     this.slider.max = "1";
     this.slider.step = "0.01";
     this.slider.setAttribute('orient', 'vertical');
-    this.slider.style.height = window.innerHeight - 250 + 'px';
+    this.slider.style.height = window.innerHeight - 350 + 'px';
     this.slider.onchange = function () {
         var time = audioEngineContext.timer.getTestTime();
         var id = Number(this.parentNode.getAttribute('trackIndex'));
@@ -412,8 +412,8 @@ function sliderObject(audioObject, label) {
         if (document.getElementById("imageController")) {
             imgHeight = $(interfaceContext.imageHolder.root).height();
         }
-        this.holder.style.height = window.innerHeight - 200 - imgHeight + 'px';
-        this.slider.style.height = window.innerHeight - 250 - imgHeight + 'px';
+        this.holder.style.height = window.innerHeight - 300 - imgHeight + 'px';
+        this.slider.style.height = window.innerHeight - 350 - imgHeight + 'px';
     };
     this.updateLoading = function (progress) {
         progress = String(progress);
@@ -454,7 +454,7 @@ function resizeWindow(event) {
     var numObj = document.getElementsByClassName('track-slider').length;
     var totalWidth = (numObj - 1) * 150 + 100;
     var diff = (window.innerWidth - totalWidth) / 2;
-    document.getElementById('slider').style.height = window.innerHeight - 180 - imageHeight + 'px';
+    document.getElementById('slider').style.height = window.innerHeight - 280 - imageHeight + 'px';
     if (diff <= 0) {
         diff = 0;
     }
@@ -465,7 +465,7 @@ function resizeWindow(event) {
         }
     }
     document.getElementById('scale-holder').style.marginLeft = (diff - 100) + 'px';
-    document.getElementById('scale-text-holder').style.height = window.innerHeight - imageHeight - 194 + 'px';
+    document.getElementById('scale-text-holder').style.height = window.innerHeight - imageHeight - 294 + 'px';
     // Cheers edge for making me delete a canvas every resize.
     var canvas = document.getElementById('scale-canvas');
     var new_canvas = document.createElement("canvas");
@@ -473,7 +473,7 @@ function resizeWindow(event) {
     canvas.parentElement.appendChild(new_canvas);
     canvas.parentElement.removeChild(canvas);
     new_canvas.width = totalWidth;
-    new_canvas.height = window.innerHeight - 194 - imageHeight;
+    new_canvas.height = window.innerHeight - 294 - imageHeight;
     drawScale();
 }
 
