@@ -154,3 +154,6 @@ div#master-volume-holder {
     top: 10px;
     left: 120px;
 }
+div#footer {
+    visibility: hidden;
+}
