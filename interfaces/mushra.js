@@ -44,13 +44,14 @@ function loadInterface() {
     // Create Interface buttons!
     var interfaceButtons = document.createElement('div');
     interfaceButtons.id = 'interface-buttons';
-    interfaceButtons.style.height = '25px';
+    interfaceButtons.style.height = '35px';
 
     // Create playback start/stop points
     var playback = document.createElement("button");
     playback.innerHTML = 'Stop';
     playback.id = 'playback-button';
     playback.style.display = 'inline-block';
+    playback.style.marginLeft = '5px';
     // onclick function. Check if it is playing or not, call the correct function in the
     // audioEngine, change the button text to reflect the next state.
     playback.onclick = function () {
@@ -67,6 +68,7 @@ function loadInterface() {
     submit.onclick = buttonSubmitClick;
     submit.id = 'submit-button';
     submit.style.display = 'inline-block';
+    submit.style.marginLeft = '5px';
     // Append the interface buttons into the interfaceButtons object.
     interfaceButtons.appendChild(playback);
     interfaceButtons.appendChild(submit);
@@ -80,7 +82,7 @@ function loadInterface() {
     var sliderBox = document.createElement('div');
     sliderBox.style.width = "100%";
     sliderBox.style.height = window.innerHeight - 300 + 12 + 'px';
-    sliderBox.style.marginBottom = '10px';
+    sliderBox.style.marginBottom = '20px';
     sliderBox.id = 'slider';
     var scaleHolder = document.createElement('div');
     scaleHolder.id = "scale-holder";
@@ -243,6 +245,7 @@ function loadTest(audioHolderObject) {
                         var button = document.createElement("button");
                         button.textContent = "Sort";
                         button.style.display = 'inline-block';
+                        button.style.marginLeft = '5px';
                         var container = document.getElementById("interface-buttons");
                         var neighbour = container.lastElementChild;
                         while (neighbour.nodeName !== "BUTTON") {
@@ -293,7 +296,7 @@ function sliderObject(audioObject, label) {
     this.play = document.createElement('button');
 
     this.holder.className = 'track-slider';
-    this.holder.style.height = window.innerHeight - 300 + 'px';
+    this.holder.style.height = window.innerHeight - 290 + 'px';
     this.holder.appendChild(this.title);
     this.holder.appendChild(this.slider);
     this.holder.appendChild(this.play);
@@ -313,7 +316,7 @@ function sliderObject(audioObject, label) {
     this.slider.max = "1";
     this.slider.step = "0.01";
     this.slider.setAttribute('orient', 'vertical');
-    this.slider.style.height = window.innerHeight - 350 + 'px';
+    this.slider.style.height = window.innerHeight - 340 + 'px';
     this.slider.onchange = function () {
         var time = audioEngineContext.timer.getTestTime();
         var id = Number(this.parentNode.getAttribute('trackIndex'));
@@ -412,7 +415,7 @@ function sliderObject(audioObject, label) {
         if (document.getElementById("imageController")) {
             imgHeight = $(interfaceContext.imageHolder.root).height();
         }
-        this.holder.style.height = window.innerHeight - 300 - imgHeight + 'px';
+        this.holder.style.height = window.innerHeight - 290 - imgHeight + 'px';
         this.slider.style.height = window.innerHeight - 350 - imgHeight + 'px';
     };
     this.updateLoading = function (progress) {

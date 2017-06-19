@@ -18,7 +18,9 @@ div.pageTitle span {
 button {
     /* Specify any button structure or style */
     min-width: 20px;
-    background-color: #ddd
+    background-color: #ddd;
+    height: 30px;
+    font-size: 13px;
 }
 div#slider-holder {
     height: inherit;
@@ -57,11 +59,13 @@ div#outside-reference-holder {
     display: flex;
     align-content: center;
     justify-content: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 button.outside-reference {
     position: inherit;
     margin: 0px 5px;
+    height: 30px;
+    font-size: 13px;
 }
 div.track-slider-playing {
     background-color: rgba(255, 201, 201, 0.5);
@@ -77,6 +81,7 @@ input[type=range][orient=vertical] {
     width: 8px;
     padding: 0 5px;
     color: rgb(255, 144, 144);
+    margin-bottom: 5px;
 }
 input[type=range]::-webkit-slider-runnable-track {
     width: 8px;
@@ -147,7 +152,7 @@ input.track-slider-range-disabled[type=range]::-ms-thumb {
 }
 div#page-count {
     float: left;
-    margin: 0px 5px;
+    margin: 8px 5px;
 }
 div#master-volume-holder {
     position: absolute;
