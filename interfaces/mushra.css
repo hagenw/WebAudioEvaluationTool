@@ -45,6 +45,7 @@ div.scale-text {
 canvas#scale-canvas {
     position: relative;
     float: left;
+    margin-left: 5px;
 }
 div.track-slider {
     float: left;
