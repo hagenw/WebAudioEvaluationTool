@@ -332,7 +332,11 @@ function sliderObject(audioObject, label) {
         if (event.currentTarget.getAttribute("playstate") == "ready") {
             audioEngineContext.play(id);
         } else if (event.currentTarget.getAttribute("playstate") == "playing") {
-            audioEngineContext.stop();
+            // audioEngineContext.stop(); // <-- original behavior
+            //
+            // Play reference on button press in order to toggle between test
+            // and reference (see also change on line 367)
+            audioEngineContext.play(audioEngineContext.audioObjects.length - 1);
         }
     };
 
@@ -359,7 +363,8 @@ function sliderObject(audioObject, label) {
         if (outsideReference !== null) {
             $(outsideReference).removeClass('track-slider-playing');
         }
-        this.play.textContent = "Stop";
+        //this.play.textContent = "Stop";
+        this.play.textContent = "Play";
         if (page.restrictMovement) {
             if (page.loop) {
                 $(this.slider).removeClass("track-slider-range-disabled");
